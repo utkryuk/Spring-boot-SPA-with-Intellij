@@ -36,9 +36,8 @@ public class PhoneBookServiceImpl implements PhonebookService {
     public Phonebook updateRecordById(Phonebook record, String id) {
         Optional<Phonebook> ifRecordPresent = repository.findById(id);
         if(ifRecordPresent.isPresent()) {
-            Phonebook tempRecord = ifRecordPresent.get();
-            tempRecord.setId(id);
-            return repository.save(tempRecord);
+            record.setId(id);
+            return repository.save(record);
         }
         return null;
     }

@@ -1,5 +1,6 @@
 package com.utkarsh.controller;
 
+import com.utkarsh.exception.RecordNotFoundException;
 import com.utkarsh.model.Phonebook;
 import com.utkarsh.service.impl.PhoneBookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +24,12 @@ public class PhonebookController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<?> getRecordById(@PathVariable(value = "id") String id) {
+    public ResponseEntity<Phonebook> getRecordById(@PathVariable(value = "id") String id) {
         Phonebook record = phoneService.getRecordById(id);
         if (record != null) {
             return ResponseEntity.ok(record);
         }
-
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body("No record exists");
+        throw new RecordNotFoundException("Invalid record id: " + id);
     }
 
     @PostMapping(path = "")
@@ -42,16 +40,14 @@ public class PhonebookController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<?> updateRecordById(@RequestBody Phonebook record, @PathVariable(value = "id") String id) {
+    public ResponseEntity<Phonebook> updateRecordById(@RequestBody Phonebook record, @PathVariable(value = "id") String id) {
         Phonebook returnRecord = phoneService.updateRecordById(record, id);
         if (returnRecord != null) {
             return ResponseEntity
                     .ok(returnRecord);
         }
 
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body("No record exists");
+        throw new RecordNotFoundException("Invalid record id: " + id);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -62,9 +58,9 @@ public class PhonebookController {
                     .status(HttpStatus.NO_CONTENT)
                     .body("Record Deleted Successfully");
         }
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body("No record exists");
+
+        throw new RecordNotFoundException("Invalid record id:" + id);
+
     }
 
 }
