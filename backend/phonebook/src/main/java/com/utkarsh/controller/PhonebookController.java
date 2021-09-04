@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -33,14 +34,14 @@ public class PhonebookController {
     }
 
     @PostMapping(path = "")
-    public ResponseEntity<Phonebook> addRecord(@RequestBody Phonebook record) {
+    public ResponseEntity<Phonebook> addRecord(@Valid @RequestBody Phonebook record) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(phoneService.addRecord(record));
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Phonebook> updateRecordById(@RequestBody Phonebook record, @PathVariable(value = "id") String id) {
+    public ResponseEntity<Phonebook> updateRecordById(@Valid @RequestBody Phonebook record, @PathVariable(value = "id") String id) {
         Phonebook returnRecord = phoneService.updateRecordById(record, id);
         if (returnRecord != null) {
             return ResponseEntity
