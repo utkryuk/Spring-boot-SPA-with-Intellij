@@ -1,7 +1,9 @@
 spring:
   data:
     mongodb:
-      uri: "mongodb://localhost:27017/phonebook"
+      database: phonebook
+      host: mongodb
+      port: 27017
       auto-index-creation: true
 
 server:
