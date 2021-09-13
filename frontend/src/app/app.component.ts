@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CrudServiceService } from './crud-service.service';
-
-import { Phonebook} from './phonebook';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,24 +7,12 @@ import { Phonebook} from './phonebook';
 })
 export class AppComponent{
   
-  records: Phonebook[] = [];
 
-  constructor(public crudService: CrudServiceService) {
+  constructor() {
 
   }
 
-  // ngOnInit() {
-  //   this.crudService
-  //     .getAll().subscribe((data: Phonebook []) => {
-  //       console.log(data);
-  //       this.records = data;
-  //   })
-  // }
-
   ngOnInit() {
-    this.crudService.getAll().subscribe((data: Phonebook[]) => {
-      console.log(data);
-      this.records = data;
-    })
+
   }
 }

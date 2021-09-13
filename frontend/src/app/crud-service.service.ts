@@ -27,8 +27,20 @@ export class CrudServiceService {
       // )
   }
 
-  // errorHandler(error) {
-    
-  //   console.log(error);
-  // }
+  getById(id: String): Observable<Phonebook> {
+    return this.httpClient.get<Phonebook>(`${this.apiServer}/${id}`);
+  }
+
+  create(record: Phonebook): Observable<Phonebook> {
+    return this.httpClient.post<Phonebook>(this.apiServer, record);
+  } 
+
+  updateById(id: String, record: Phonebook): Observable<Phonebook> {
+    return this.httpClient.put<Phonebook>(`${this.apiServer}/${id}`, record);
+  }
+
+  deleteById(id: String): Observable<any> {
+    return this.httpClient.delete<any>(`${this.apiServer}/${id}`);
+  }
+
 }
