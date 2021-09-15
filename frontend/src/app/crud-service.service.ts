@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { Phonebook } from './phonebook';
 
@@ -20,11 +19,7 @@ export class CrudServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Phonebook[]> {
-    console.log(this.httpClient.get<Phonebook[]>(this.apiServer))
     return this.httpClient.get<Phonebook[]>(this.apiServer);
-      // .pipe(
-      //   catchError(this.errorHandler)
-      // )
   }
 
   getById(id: String): Observable<Phonebook> {

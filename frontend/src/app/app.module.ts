@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecordsComponent } from './components/records/records.component';
 import { AddRecordComponent } from './components/add-record/add-record.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecordsComponent,
-    AddRecordComponent
+    AddRecordComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

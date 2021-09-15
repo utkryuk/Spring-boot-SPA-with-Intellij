@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  showMenu = false;
 
   constructor() {
 
@@ -16,8 +15,4 @@ export class AppComponent{
 
   }
 
-  toggleNavbar() {
-    this.showMenu = !this.showMenu;
-  }
-  
 }

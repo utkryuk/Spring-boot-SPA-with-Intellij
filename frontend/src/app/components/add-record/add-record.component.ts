@@ -52,8 +52,6 @@ export class AddRecordComponent implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault()
-    console.log(event)
-    console.log(this.record)
 
     if (this.isAddMode) {
       this.createRecord()
