@@ -25,14 +25,14 @@ You will need these preinstalled:
 ### Installation
 
 1. Clone the repo
-    ```sh
+    ```
     git clone https://github.com/utkryuk/Spring-boot-SPA-with-Intellij.git
     ```
 2. To run backend with docker and docker-compose
    ```sh
-   cd backend/
+   cd backend/phonebook/
    docker build -t phonebook-backend .
-   cd ..
+   cd ../..
    docker-compose up
    ```
 
@@ -43,7 +43,7 @@ You will need these preinstalled:
    ```
     - Go to http://localhost:4200/
 
-4. To stop the application
+4. To stop the backend application
    ```sh
    docker-compose down
    ```
