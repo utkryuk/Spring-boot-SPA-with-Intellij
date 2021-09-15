@@ -6,7 +6,8 @@ import { RecordsComponent } from './components/records/records.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },  
   { path: 'home' , component: RecordsComponent },
-  { path: 'addRecord' , component: AddRecordComponent }
+  { path: 'addRecord' , component: AddRecordComponent },
+  { path: 'editRecord/:id', component: AddRecordComponent }
 ];
 
 @NgModule({
