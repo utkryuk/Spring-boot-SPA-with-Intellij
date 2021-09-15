@@ -13,14 +13,3 @@ services:
       - 8081:8081
     links:
       - mongodb
-
-  phonebook-frontend:
-    image: phonebook-frontend
-    container_name: phonebook-frontend
-    ports:
-      - 80:80
-    links:
-      - phonebook-backend
-    depends_on: 
-      - phonebook-backend
-

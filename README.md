@@ -18,6 +18,7 @@ To get a local copy up and running follow these simple example steps.
 
 You will need these preinstalled:
 
+* npm
 * docker
 * docker-compose
 
@@ -27,21 +28,26 @@ You will need these preinstalled:
     ```sh
     git clone https://github.com/utkryuk/Spring-boot-SPA-with-Intellij.git
     ```
-2. To build docker image of frontend
-    ```sh
-    cd frontend/
-    docker build -t phonebook-frontend .
-    ```
-3. To build docker image of backend
+2. To run backend with docker and docker-compose
    ```sh
    cd backend/
    docker build -t phonebook-backend .
-   ```
-4. To run the application
-   ```sh
+   cd ..
    docker-compose up
    ```
-5. To stop the application
+
+3. To run frontend
+    ```sh
+    cd frontend/
+    npm start
+   ```
+    - Go to http://localhost:4200/
+
+4. To stop the application
    ```sh
    docker-compose down
    ```
+
+## API Documentation
+
+- After running the backend, the Swagger API documentation is hosted at: http://localhost:8081/swagger-ui.html
