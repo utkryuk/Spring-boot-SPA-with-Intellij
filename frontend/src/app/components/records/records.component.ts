@@ -26,12 +26,6 @@ export class RecordsComponent implements OnInit {
     })
   }
 
-  createRecord(record: Phonebook) {
-    this.crudService.create(record).subscribe((data: Phonebook) => {
-      console.log(data);
-    })
-  }
-
   updateRecord(id: String, record: Phonebook) {
     this.crudService.updateById(id, record).subscribe((data: Phonebook) => {
       console.log(data);

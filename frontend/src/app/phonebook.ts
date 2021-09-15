@@ -1,5 +1,5 @@
 export interface Phonebook {
-    id: String;
+    id?: String;
     firstName: String;
     lastName: String;
     phone: number

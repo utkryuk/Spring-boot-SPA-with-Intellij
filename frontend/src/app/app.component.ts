@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  
+  showMenu = false;
 
   constructor() {
 
@@ -15,4 +15,9 @@ export class AppComponent{
   ngOnInit() {
 
   }
+
+  toggleNavbar() {
+    this.showMenu = !this.showMenu;
+  }
+  
 }
